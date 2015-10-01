@@ -1,0 +1,44 @@
+<!Doctype html>
+	<html>
+	<head>
+	
+	</head>
+		<body>
+			<div >
+				<ul>
+                  <li data-url="http://www.w3schools.com" id ="why" >www.w3school.com</li>
+                  <li data-url="http://www.google.com"    id ="how" >google.com</li>
+                  <li data-url="http://www.twitter.com"   id ="hi"  >twitter.com</li>
+				  <li data-url="http://youtube.com"       id ="my"  >youtube.com</li>
+				</ul>
+			</div>
+				
+
+
+
+
+<script>
+                   var ram = document.getElementById("why");
+					ram.addEventListener("click", myFunction);
+					var ram = document.getElementById("how");
+					ram.addEventListener("click", myFunction);
+					var syam = document.getElementById("hi");
+					syam.addEventListener("click", myFunction);
+					var tam = document.getElementById("my");
+					tam.addEventListener("click", myFunction);
+					
+				  
+				   
+				   function myFunction(){
+				    var y = this.getAttribute("data-url");
+					window.open(y);
+					}
+		
+
+					 
+</script>
+
+</body>
+</html>
+				
+				
