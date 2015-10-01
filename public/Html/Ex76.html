@@ -1,0 +1,68 @@
+<html>
+<body>
+<p>Ask for a prompt, if I enter ‘Monday’, in console display- Tuesday’,’Wednesday’,’Thursday’,’Friday’and ‘Saturday.</p>
+
+
+<script>
+
+var day=["monday","tuesday","wednesday","thursday","friday","saturday","sunday"];
+
+var a=prompt("Please enter your number");
+
+function displayQuotes(x){
+ 
+ if(x == "monday"){
+  
+  for(i = 1; i < day.length; i++) {
+        
+		console.log(day[i]);
+	  }
+    } 
+  if(x == "tuesday"){
+  
+  for(i = 2; i < day.length; i++) {
+        
+		console.log(day[i]);
+	  }
+    } 
+	if(x == "wednesday"){
+  
+  for(i = 3; i < day.length; i++) {
+        
+		console.log(day[i]);
+	  }
+    } 
+	if(x == "thrusday"){
+  
+  for(i = 4; i < day.length; i++) {
+        
+		console.log(day[i]);
+	  }
+	 }
+    if(x == "friday"){
+  
+  for(i = 5; i < day.length; i++) {
+        
+		console.log(day[i]);
+	  }
+    } 
+	if(x == "saturday"){
+  
+  for(i = 6; i < day.length; i++) {
+        
+		console.log(day[i]);
+	  }
+    } 
+    
+	
+	else if(x == "sunday"){
+	console.log("it is the last day of the week");
+	}
+   
+   }
+
+displayQuotes(a);
+
+</script>
+</body>
+</html> 

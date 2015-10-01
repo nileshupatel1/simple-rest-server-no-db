@@ -1,0 +1,31 @@
+//Click button to calculate sum, multiply, modulus with separate functions. Alert one after the other.
+<!DOCTYPE html>
+<html>
+<head>
+<body>
+<script>
+
+ var a,b,result;
+
+ function sum(a,b){
+    result = a+b;
+    alert(result);
+}
+
+function multiply(a,b){
+    result = a*b;
+    alert(result);
+}
+
+function mod(a,b){
+	result = a%b;
+	alert(result);
+}
+
+</script>
+
+<input Type="Button"  onclick="sum(10,11)" Value="result"/>
+<input Type="Button"  onclick="multiply(10,11)" Value="result"/>
+<input Type="Button"  onclick="mod(10,11)" Value="result"/>
+</body>
+</html>

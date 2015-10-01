@@ -1,0 +1,23 @@
+//Have two global variables and two local variables and calculate sum, multiply, modulus.
+
+<html>
+<head>
+</head>
+<script>
+
+var gob = 7; //this has global scope
+
+ globalLocal = function(num) {
+  var gob = num * 2;
+    console.log("Inside the function my_number is: ");
+    console.log(gob);
+}; 
+
+globalLocal(7);
+
+console.log("Outside the function my_number is: ")
+console.log(gob);
+</script>
+<body>
+</body>
+</html>

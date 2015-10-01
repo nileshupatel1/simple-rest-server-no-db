@@ -1,0 +1,22 @@
+<html>
+<body>
+<p>Prompt the user for appropriate values based on the operation that you are performing and then execute the following operations on the array:
+\slice()\</p>
+<script>
+
+var array=["Hello","Bye","Hi","Good morning","Nice Day"];
+
+function displayQuotes(x){
+ 
+  console.log(x.slice(prompt("Enter the element")));
+  console.log(x.length);
+  for(i = 0; i < x.length; i++) {
+         console.log(x[i]);
+    } 
+}
+displayQuotes(array);
+
+</script>
+
+</body>
+</html>

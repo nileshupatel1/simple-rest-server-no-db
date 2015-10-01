@@ -1,0 +1,65 @@
+<html>
+<body>
+<p>Ask for a prompt, if I enter ‘Monday’, in console display- Tuesday’,’Wednesday’,’Thursday’,’Friday’and ‘Saturday.</p>
+
+
+<script>
+
+var day=["monday","tuesday","wednesday","thursday","friday","saturday","sunday"];
+
+var a=prompt("Please enter your number");
+
+function displayQuotes(x){
+ 
+ if(x == "monday"){
+  day.push("monday");
+  for(i = 1; i < day.length; i++) {
+        console.log(day[i]);
+	  }
+    } 
+  if(x == "tuesday"){
+  day.push("monday","tuesday");
+  for(i = 2; i < day.length; i++) {
+        
+		console.log(day[i]);
+	  }
+    } 
+	if(x == "wednesday"){
+  day.push("monday","tuesday","wednesday");
+  for(i = 3; i < day.length; i++) {
+        
+		console.log(day[i]);
+	  }
+    } 
+	if(x == "thrusday"){
+  day.push("monday","tuesday","wednesday","thrusday");
+  for(i = 4; i < day.length; i++) {
+        
+		console.log(day[i]);
+	  }
+	 }
+    if(x == "friday"){
+  day.push("monday","tuesday","wednesday","thrusday","friday");
+  for(i = 5; i < day.length; i++) {
+        
+		console.log(day[i]);
+	  }
+    } 
+	if(x == "saturday"){
+  day.push("monday","tuesday","wednesday","thrusday","friday","saturday");
+	  for(i = 6; i < day.length; i++) {
+			console.log(day[i]);
+		}
+    } 
+    
+   if(x == "sunday"){
+		for(i = 0; i < day.length; i++) {
+			console.log(day[i]);
+		}
+   }
+}
+displayQuotes(a);
+
+</script>
+</body>
+</html> 

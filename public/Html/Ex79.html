@@ -1,0 +1,24 @@
+<html>
+<body>
+<p>Create an array, for every match, display an alert ‘match’.</p>
+
+
+<script>
+
+var day=["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday",];
+
+function displayQuotes(x){
+ 
+  for(i = 0; i < x.length; i++) {
+           console.log(x[i]);
+         if(x[i] == "Wednesday"){    
+         		 alert("match");
+      return;
+	  } 
+    } 
+}
+displayQuotes(day);
+
+</script>
+</body>
+</html> 

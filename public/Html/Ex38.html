@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+//Write a program to prompt the user to enter a day (like Monday, Tuesday, Wednesday, etc). Based on the value entered by the user, display a special dish. For example, if the user enters Monday then alert "Mondays, We serve Pasta". If the user enters Friday then alert "Fridays, we serve Tacos".
+<script>
+var a=prompt("Please enter your dish");
+
+var offer =function (dish){
+
+
+switch (dish) {
+    case "monday":
+        alert("pasta");
+        break;
+    case "tuesday":
+        alert("curry");
+        break;
+    case "wednesday":
+        alert("rice");
+        break;
+    case "thrusday":
+        alert("mancurian");
+        break;
+    
+	default:
+        alert("no food");
+}
+}
+ offer(a);
+ 
+</script>
+</body>
+</html>

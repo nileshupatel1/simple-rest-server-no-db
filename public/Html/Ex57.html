@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+
+//If I enter an even number, I want previous 5 even numbers to be printed. If I enter an odd number, I want previous 5 odd numbers to be printed.
+ 
+var a=prompt("Please enter your number");
+
+var number =function (num){
+
+if(num % 2 == 0){
+
+for (i = num; i > 0; i--){
+   if(i%2 == 0){
+  console.log(i);
+   }
+  }
+ }
+ 
+ else if(num % 2 != 0){
+
+for (i = num; i > 0; i--){
+   if(i%2 != 0){
+  console.log(i);
+   }
+  }
+ }
+ 
+};
+ 
+number(a);
+ 
+</script>
+</body>
+</html>

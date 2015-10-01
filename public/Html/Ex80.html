@@ -1,0 +1,27 @@
+<html>
+<body>
+<p>Create two arrays, for every match between the 2 arrays, display an alert 'there is a match'.</p>
+
+
+<script>
+
+var day=["monday","tuesday","wednesday","thursday","friday","saturday"];
+var one=["mon","tu","wednesday","thru","friday","Sat"];
+
+function displayQuotes(x,y){
+ 
+  for(i = 0; i < x.length; i++) {
+  console.log(x[i]);
+  console.log(y[i]);
+         if(x[i] == y[i]){    
+         		 alert("match");
+      return;
+	  } 
+    } 
+}
+displayQuotes(day,one);
+
+</script>
+</body>
+</html> 
+

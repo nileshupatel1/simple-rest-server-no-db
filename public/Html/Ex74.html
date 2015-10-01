@@ -1,0 +1,21 @@
+<html>
+<body>
+<p>Create a Months Array (jan, feb, mar...etc) and repeat question 3 and 4. Once you implement these two arrays, use concat() method to add these arrays. Print each of the elements of this concatenated array one after the other - hint: use loops.</p>
+<script>
+
+var array=["Hello","Bye","Hi","Good morning","Nice Day"];
+var month=["jan","feb","mar","april","may"];
+
+function displayQuotes(x,y){
+ var a = x.concat(y);
+  console.log(a);
+  for(i = 0; i < a.length; i++) {
+         console.log(a[i]);
+    } 
+ } 
+
+displayQuotes(array,month);
+
+</script>
+</body>
+</html> 
