@@ -1,0 +1,52 @@
+<!Doctype html>
+	<html>
+	<head>
+		<title>DOM</title>
+					<style>
+					div{border: 1px solid black;
+						height: 120px;
+						width: 140px;
+						float:left;}
+					</style>
+	</head>
+		<body>
+			<div id ="fruits">
+				<input type = "checkbox" value = "Apple" onclick ="abc(this)">Apple<br>
+				<input type = "checkbox" value = "Mango" onclick ="abc(this)">Mango<br>
+				<input type = "checkbox" value = "Grape" onclick = "abc(this)">Grape<br>
+				<input type = "checkbox" value = "Strawberry" onclick = "abc(this)">Strawberry<br>
+				<input type = "checkbox" value = "Cherry" onclick = "abc(this)">Cherry<br>
+			</div>
+				<div>
+				<ul id = "xyz">
+				</ul>
+				</div>
+					<script>
+				function abc(x){
+				console.log(x);
+						//var y = x.getAttributeNode("value")
+						//console.log(y);
+						console.log(x);
+						if(x.checked){
+						var my = document.createElement("li");
+							var text = document.createTextNode(x.value);
+							console.log(x.value);
+							my.appendChild(text);
+							document.getElementById("xyz").appendChild(my)
+						
+						}else{
+							var para = document.getElementsByTagName("li");
+							console.log(para);
+							for(i = 0; i < para.length;i++){
+								if(x.value == para[i].innerHTML){
+									document.getElementById("xyz").removeChild(para[i]);
+								}
+							}
+						}
+					}
+					
+					</script>
+		</body>
+		
+
+	</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My First HTML</title>
+  <style>
+  .mdiv {
+  width: 300px; 
+  float:left; 
+  height:200px; 
+  background:magenta; 
+  padding:20px;
+  border-style:solid
+  }
+  </style>
+</head>
+<body>
+
+<h1>DOM exercises </h1>
+<div id="mydiv" class="mdiv">
+<form id="frm1" name="myForm" method="post">
+	
+	<input type="checkbox" name="friut" value="orange"><span>Orange</span>
+	<br>
+	<input type="checkbox" name="fruit" value="mango"><span>Mango</span>
+	<br>
+	<input type="checkbox" name="friut" value="grape"><span>Grape</span>
+	<br>
+	<input type="checkbox" name="fruit" value="strawberry"><span>Strawberry</span>
+	<br>
+	<input type="checkbox" name="friut" value="cherry"><span>Cherry</span>
+	<br>
+	
+</form> 
+</div>
+
+<div id="ViewDiv" class="mdiv">
+	
+</div>
+		<script>
+		var bt1 = document.getElementById("mydiv");
+		bt1.addEventListener("click",chkfruit);	
+		/*var bt1 = document.getElementsByTagName("span");
+		
+		console.log(bt1);
+		for(var i=0;i<bt1.length;i++)
+		{
+			bt1[i].addEventListener("click",chkfruit);
+		}*/
+		
+		
+		function chkfruit(event)
+		{
+			var x=event.target;
+			console.log(x);
+			var ccc=x.innerHTML;
+			console.log(ccc);
+					if(x.checked==true || x.previousSibling.checked==false)
+					{ console.log(x.previousSibling.checked==false );
+						x.previousSibling.checked=true;
+						var c=document.createElement("li");
+						d = document.createTextNode(x.previousSibling.value);
+						var dd =c.appendChild(d);
+						//console.log(dd);
+						y = document.getElementById("ViewDiv");
+						var cc=y.appendChild(c);
+						//console.log(cc);
+					
+					}
+				else
+					{
+						var z=document.getElementsByTagName("li");
+						for(var j=0;j<z.length;j++)
+						{
+							if(x.previousSibling.value=== z[j].innerHTML)
+							{						
+								var e=document.getElementById("ViewDiv");
+								e.removeChild(z[j]);
+								//console.log(e);
+							}
+							x.previousSibling.checked=false;
+						}
+						
+					}
+		}					
+		
+		
+</script>
+</body>
+</html>

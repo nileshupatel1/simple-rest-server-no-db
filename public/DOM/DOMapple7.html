@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DOM</title>
+    <style>
+        div {
+            border: 1px solid black;
+            height: 200px;
+            width: 180px;
+            float: left;
+        }
+        
+        .fruits {
+            color: Red;
+        }
+        
+        #add {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <input type="checkbox"><span>Apple</span>
+        <br>
+        <input type="checkbox"><span>Mango</span>
+        <br>
+        <input type="checkbox"><span>Grape</span>
+        <br>
+        <input type="checkbox"><span>Strawberry</span>
+        <br>
+        <input type="checkbox"><span>Cherry</span>
+        <br>
+        <button type="submit" id="add">Add</button>
+    </div>
+
+    <div>
+        <ul id="xyz">
+        </ul>
+    </div>
+    <script>
+        var x = document.getElementsByTagName("input");
+        for (i = 0; i < x.length; i++) {
+            x[i].addEventListener("click", abc);
+        }
+        console.log(x.length);
+        var ww = document.getElementById("add");
+        ww.addEventListener("click", abc);
+
+        function abc() {
+
+            //var z = this.getAttributeNode("type")
+
+            if (this.type == "checkbox") {
+
+                var y = this.nextSibling.innerHTML;
+                console.log(y)
+
+                //console.log(z);
+                if (this.checked) {
+                    this.nextSibling.className = "fruits";
+                    var my = document.createElement("li");
+                    var text = document.createTextNode(y);
+                    my.appendChild(text);
+                    document.getElementById("xyz").appendChild(my)
+                } else {
+                    this.nextSibling.className = "";
+                    var para = document.getElementsByTagName("li");
+                    for (i = 0; i < para.length; i++) {
+                        if (y == para[i].innerHTML) {
+                            document.getElementById("xyz").removeChild(para[i]);
+                        }
+                    }
+                }
+            }
+            if (this.type == "submit") {
+
+                var d = prompt("Enter your Fruit Name");
+                if (isNaN(d)) {
+                    var p = document.createElement("input");
+                    p.setAttribute("type", "checkbox");
+                    document.getElementById("main").appendChild(p);
+                    var s = document.createElement("SPAN");
+                    s.innerHTML = d;
+                    document.getElementById("main").appendChild(s);
+                    var f = document.createElement("br");
+                    document.getElementById("main").appendChild(f);
+
+
+                    var x = document.getElementsByTagName("input");
+                    for (i = 0; i < x.length; i++) {
+                        x[i].addEventListener("click", abc);
+                    }
+
+                    if (this.type == "checkbox") {
+
+                        var y = this.nextSibling.innerHTML;
+                        console.log(y)
+
+                        //console.log(z);
+                        if (this.checked) {
+                            this.nextSibling.className = "fruits";
+                            var my = document.createElement("li");
+                            var text = document.createTextNode(y);
+                            my.appendChild(text);
+                            document.getElementById("xyz").appendChild(my)
+                        } else {
+                            this.nextSibling.className = "";
+                            var para = document.getElementsByTagName("li");
+                            for (i = 0; i < para.length; i++) {
+                                if (y == para[i].innerHTML) {
+                                    document.getElementById("xyz").removeChild(para[i]);
+                                }
+                            }
+                        }
+                    }
+
+
+
+                }
+            }
+
+        }
+    </script>
+</body>
+
+</html>

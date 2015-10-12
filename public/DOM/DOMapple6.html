@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+		<title>DOM</title>
+			<style>
+			div{border: 1px solid black;
+				height: 150px;
+				width: 140px;
+				float:left;}
+			.fruits{
+				color:Red;
+			}
+			</style>
+	</head>
+		<body>
+			<div id ="main">
+				<input type = "checkbox" ><span>Apple</span><br>
+				<input type = "checkbox" ><span>Mango</span><br>
+				<input type = "checkbox" ><span>Grape</span><br>
+				<input type = "checkbox" ><span>Strawberrys</span><br>
+				<input type = "checkbox" ><span>Cherry</span><br>
+			</div>
+				<div>
+					<ul id = "xyz">
+					</ul>
+				</div>
+				<script>
+					
+					var x = document.getElementsByTagName("span");
+					
+					for(i = 0; i < x.length; i++){ 
+						x[i].addEventListener("click",abc);
+					}
+	function abc(){
+					console.log(this);
+					if(this.checked==true || this.previousSibling.checked==false){
+				
+							this.previousSibling.checked=true;
+							var my = document.createElement("li");
+							var text = document.createTextNode(this.innerHTML);      
+							my.appendChild(text);
+							document.getElementById("xyz").appendChild(my)
+												
+						}else{this.previousSibling.checked=false;
+								var para = document.getElementsByTagName("li");
+								for(i = 0; i < para.length;i++){
+									if(this.innerHTML == para[i].innerHTML){
+									document.getElementById("xyz").removeChild(para[i]);
+
+								}
+								
+							}
+						}
+					};
+				
+				</script>
+		</body>
+	</html>
