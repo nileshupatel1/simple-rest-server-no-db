@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DOM</title>
+    <style>
+        div {
+            border: 1px solid black;
+            height: 150px;
+            width: 200px;
+            float: left;
+        }
+        
+        .fruits {
+            color: Red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <input type="checkbox"><span>Apple</span><button type="button">Apple</button>
+        <br>
+        <input type="checkbox"><span>Mango</span><button type="button">Mango</button>
+        <br>
+        <input type="checkbox"><span>Grape</span><button type="button">Grape</button>
+        <br>
+        <input type="checkbox"><span>Strawberrys</span><button type="button">Strawberrys</button>
+        <br>
+        <input type="checkbox"><span>Cherry</span><button type="button">Cherry</button>
+		<br>
+		
+    </div>
+    <div>
+        <ul id="xyz">
+        </ul>
+    </div>
+    <script>
+	
+	var x = document.getElementsByTagName("span");
+	for (i = 0; i < x.length; i++) {
+		x[i].addEventListener("click", abc);
+	}
+
+		
+	var z = document.getElementsByTagName("input");
+		for (i = 0; i < z.length; i++) {
+			z[i].addEventListener("click", dbe);
+		}
+		
+	var z = document.getElementsByTagName("button");
+		for (i = 0; i < z.length; i++) {
+			z[i].addEventListener("click", pqr);
+		}
+		
+		function abc() {
+			
+			var chk = this.previousSibling;
+
+			if(chk.checked){
+				chk.checked = false;
+			} else {
+				chk.checked = true;
+			}
+			processChk(chk);
+			
+        };
+		 
+
+        function dbe() {
+		    
+			processChk(this);
+        };
+		
+		
+		function  pqr() {
+		
+		    var chk = this.previousSibling.previousSibling;
+			console.log(chk);
+			if(chk.checked){
+				chk.checked = false;
+			} else {
+				chk.checked = true;
+			}
+			processChk(chk);
+			
+        };
+		
+		
+		function processChk(chk){
+		
+		var text = chk.nextSibling.innerHTML;
+			
+			if (chk.checked) {
+                var my = document.createElement("li");
+                var text = document.createTextNode(text);
+                my.appendChild(text);
+                document.getElementById("xyz").appendChild(my)
+            } else {
+                var para = document.getElementsByTagName("li");
+                for (i = 0; i < para.length; i++) {
+                    if (text == para[i].innerHTML) {
+                        document.getElementById("xyz").removeChild(para[i]);
+                    }
+                }
+            }
+		}
+	
+		
+    </script>
+</body>
+
+</html>
