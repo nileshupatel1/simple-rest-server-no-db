@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DOM</title>
+    <style>
+        div {
+            border: 1px solid black;
+            height: 200px;
+            width: 200px;
+            float: left;
+			display:block;
+			overflow:auto;
+			position:relative;
+	   }
+        
+        .fruits {
+            color: Red;
+        }
+    </style>
+    <script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+</head>
+
+<body>
+    <div class="main">
+        <input type="checkbox" value="Apple"><span>Apple</span>
+        <br>
+        <input type="checkbox" value="Mango"><span>Mango</span>
+        <br>
+        <input type="checkbox" value="Grape"><span>Grape</span>
+        <br>
+        <input type="checkbox" value="Strawberrys"><span>Strawberrys</span>
+        <br>
+        <input type="checkbox" value="Cherry"><span>Cherry</span>
+        
+        <button type="submit"id="mybtn" style="position:absolute; right:0;bottom:0">Add More</button>
+        <br>
+    </div>
+    <div>
+        <ul id="xyz">
+        </ul>
+    </div>
+    <script>
+        $(document).ready(function() {
+           
+		   $(".main").click(function(event) {
+                var x = event.target;
+                console.log(x);
+				
+				if ($(x).is("button")) {
+                        var d = prompt("Enter your Fruit Name");
+                        if ($(d).val(Number($(d).val()).toString())) {
+                            $(".main").append("<input type=checkbox value="+ d +"><span>" + d + " </span></br>");
+							}
+						}	
+				if ($(x).is("span")) {
+				
+					var chk = x.previousSibling;
+					if(chk.checked){
+					chk.checked = false;
+					} else {
+					chk.checked = true;
+					}
+					
+                    processchk(chk);
+					}
+				
+				if ($(x).is("input")) {
+					var chk = x;
+                    processchk(chk);
+					}			
+			
+	function processchk(chk) {
+						
+                    var y = chk.value;
+					console.log(y);
+                    if (chk.checked) {
+					      
+                        $("#xyz").append("<li>" + y + "</li>");
+                    } else {
+
+                        $("#xyz li:contains(" + y + ")").remove();
+                    }
+                }
+	                    
+			});
+        
+		});
+        
+    </script>
+</body>
+
+</html>
