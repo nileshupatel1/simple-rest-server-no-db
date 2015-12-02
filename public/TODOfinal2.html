@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DOM</title>
+    <style>
+        #myBtn {
+            height: 8px;
+            width: 500px;
+            float: left;
+            padding: 20px;
+            font-size: 20px;
+            position: relative;
+        }
+        
+        .intro {
+            color: red;
+        }
+    </style>
+    <script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+</head>
+
+<body>
+    <h1> Todo list</h1>
+    <input type="text" id="demo" name="lname" placeholder="What you want to do?">
+    <hr align="left">
+    <div id="myBtn">
+        <button type="submit" id="myAdd">All</button>
+        <button type="submit" id="myComplete">completed</button>
+        <button type="submit" id="myPending">pending</button>
+        <br>
+        <input type="checkbox" id="myCheckbox" value="">select/deselect
+        <br>
+        <span id="xyz"> </span>
+        <button type="submit" id="myRemove" align="right">remove</button>
+    </div>
+
+    <script>
+        $(document).ready(function(event) {
+
+            $("#myBtn").hide();
+            $("#demo").keypress(function(e) {
+                //alert('hi');
+                if (e.keyCode == 13) {
+                    if ($("#demo").val() == "") {
+                        alert("Enter Value");
+                        return;
+                    }
+                    $("#myBtn").show();
+
+                    var y = this.value;
+                    console.log(y);
+
+                    var nn = $("#xyz").append("<label ><input type=checkbox class=selCheckbox value=" + y + ">" + y + "</br></label>");
+
+                    $("#demo").val("");
+                    console.log(nn);
+                    vp = $(".selCheckbox");
+                    $("#myCheckbox").attr('checked', false)
+
+                }
+            });
+
+            $("#myCheckbox").on("click", function() {
+                console.log(this);
+
+                if (this.checked) {
+                    $("input").each(function() {
+                        this.checked = true;
+                        $(this).closest("label").addClass("intro");
+                    });
+                } else {
+                    $("input").each(function() {
+                        this.checked = false;
+                        $(this).closest("label").removeClass("intro");
+                    });
+                }
+            });
+
+            $("#xyz").on("click", "input", function() {
+
+                if (this.checked) {
+                    $(this).closest("label").addClass("intro");
+                    var vl = vp.length;
+                    for (var i = 0; i < vl; i++) {
+                        if ($(vp[i]).is(":checked") == true) {
+                            console.log(i);
+                            if (i == vl - 1) {
+                                console.log(i);
+                                $("#myCheckbox").prop('checked', true);
+                            }
+                        } else {
+                            break;
+                        }
+                    }
+                } else {
+                    $("#myCheckbox").attr('checked', false);
+                    $(this).closest("label").removeClass("intro");
+                }
+            });
+
+            $("#myAdd").on("click", function() {
+                //	var pd = $(".selcheckbox");
+                for (var i = 0; i < vp.length; i++) {
+                    $(vp[i]).parent().show();
+                    $(vp[i]).parent();
+                }
+            });
+            $("#myComplete").on("click", function() {
+                $(vp).each(function() {
+                    console.log(this);
+                    if ($(this).is(':checked') == false) {
+
+                        $(this).parent().hide();
+                    } else {
+
+                        $(this).parent().show();
+                    }
+                });
+            });
+
+            $("#myPending").on("click", function() {
+                $(vp).each(function() {
+                    console.log(this);
+                    if ($(this).is(':checked') == false) {
+                        $(this).parent().show();
+                    } else {
+                        $(this).parent().hide();
+                    }
+                });
+            });
+
+
+            $("#myRemove").click(function() {
+                $(vp).each(function() {
+                    console.log(this);
+                    if ($(this).is(":checked")) {
+                        //	console.log($(this).parent());
+                        $(this).parent().remove();
+                        $("#myCheckbox").attr("checked", false);
+
+                    }
+                });
+            });
+
+        });
+    </script>
+</body>
+
+</html>
