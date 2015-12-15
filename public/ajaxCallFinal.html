@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+$(document).ready(function(e){
+	$("#detail").on("click", function(event){
+	event.preventDefault();
+	var formData ={"firstName": $("input[name=firstName]").val(),
+	"lastName": $("input[name=lastName]").val(),
+	"age": $("input[name=age]").val(),
+	"email": $("input[name=email]").val(),
+	"zip": $("input[name=zip]").val(),
+	"country": $("#six option:selected").text(),
+	"gender": $("input[type=radio]:checked").val(),
+	"chbox": $("input[type=checkbox]:checked").val(),
+		};
+		console.log(formData);
+		$.ajax({
+          type : "post",
+          url : "/users",
+          data : formData,
+          success: function(data){
+        $.ajax({
+          type : "get",
+          url : "/users",
+          data : "",
+          success : function(data) {
+            for(var i=0;i<data.length;i++){
+			$("#demo").append("<li> firstname :"+data[i].firstName+"</li>",
+                             "<li> lastname :"+data[i].lastName+"</li>",
+							 "<li> age :"+data[i].age+"</li>",
+							 "<li> email :"+data[i].email+"</li>",
+							 "<li> zip :"+data[i].zip+"</li>",
+							 "<li> country :"+data[i].country+"</li>",
+							 "<li> gender :"+data[i].gender+"</li>",
+							 "<li> chbox :"+data[i].chbox+"</li></br></br>")
+            }
+          } 
+        })
+		}
+      });
+      });
+});
+			
+</script>
+</head>
+<body>
+<form>
+	First Name	:<input type="text" name="firstName" id="one"></input><br>
+	Last Name:	<input type="text" name="lastName" id="two"></input><br>
+	Age :		<input type="text" name="age" id="three" value="" /> <br/>
+	Email:	 	<input type="text" name="email" id="four" /><br/>
+	Pin code: 	<input type="text" name="zip" id="five"/><br/>
+	Location: 	<select name="country" id="six">
+                     <option value="-1" selected>[choose yours]</option>
+                     <option value="1">USA</option>
+                     <option value="2">UK</option>
+                     <option value="3">INDIA</option>
+                </select><br/>
+
+			
+			<input type="radio" name="gender" value="Male">Male</input>
+			<input type="radio" name="gender" value="Female" >Female</input><br/>		  
+			<input type="checkbox" name="accepted" value="accepted">I accept</input><br/>
+			<input type="submit" id="detail"><br/>
+			<div id="demo"></div>
+</form>
+</body>
+</html>
