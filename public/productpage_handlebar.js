@@ -3,17 +3,16 @@ $(document).ready(function(e){
 	 {
 		//get data from server
 		$.ajax({
-			url:"/products/",
-			dataType:"json",
-			type:"get",
-			success:function(mydata)
-			{
-				console.log(mydata);
-			var template = Handlebars.compile($("#tpl").html());
-			$(".page").append(template(mydata));
-				
-			}
-		});
+		url:"/products",
+		method:"GET",
+		success:function(data){  
+		console.log(data);
+			var choose = $("#output").html();
+			var template = Handlebars.compile(choose); 
+			var temp = template(data);
+			$("#done").append(temp);
+		}
+	});
 
 	};
 	dispalyitem(e);
@@ -21,7 +20,6 @@ $(document).ready(function(e){
 // for adding data (button click event)
 
 	$("#add").on("click",function(e){
-		e.preventDefault();
 
 		var item_name = $("#additem").val();
 		var description = $("#desc").val();
@@ -29,27 +27,28 @@ $(document).ready(function(e){
 
 		$.ajax({
 			url:"/products",
-			type:"post",
-			data: {item_name,description,Price},
-			success: function(result){
-				console.log(result);
-				var template = Handlebars.compile( $("#tpl").html() );
-					console.log(template([result]));
-				$(".page").append(template([result]));
-				$("#additem").val("");
-				$("#desc").val("");
-				$("#price").val("");
-
+			method:"POST",
+			data:{item_name, description, Price},
+			success:function(data){
+				console.log(data);
+				var ourItem_name = $("#additem").val("");
+				var ourDescription = $("#desc").val("")
+				var ourPrice = $("#price").val("");
+				var choose = $("#output").html();
+				var template = Handlebars.compile(choose); 
+				var temp = template([data]);
+				$("#done").append(temp);
 			}
 		});
+		e.preventDefault();
 	});
-$(".page").on('click','.glyphicon',function(e){
+$("#done").on('click','.glyphicon',function(e){
 		var cnfrm = confirm("Are you sure you want to delete it??");
 		if(cnfrm === true)
 		{
 			var del_item = $(this).prop("id");
 			
-			var del_item1 = $(this).closest(".alert");
+			var del_item1 = $(this).closest(".well");
 			
 		$.ajax({
 				
